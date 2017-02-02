@@ -10,7 +10,8 @@ Result = collections.namedtuple("Result", "document score")
 
 class Document:
     """ A single file in the search corpus. """
-    def __init__(self, filename):
+    def __init__(self, id, filename):
+        self.id = id
         self.name = filename.replace(".txt", "")
         self.filename = filename
         self.max_tf = 0
@@ -42,7 +43,8 @@ class Index:
 
     def add_doc(self, filename, text):
         """Add a document to the index."""
-        doc = Document(filename)
+        id = len(self.documents)
+        doc = Document(id, filename)
         self.documents.append(doc)
 
         locs_in_file = collections.defaultdict(lambda: Loc(doc, []))
@@ -79,6 +81,29 @@ class Index:
         results.sort(key=lambda pair: pair.score, reverse=True)
         return results[:limit]
 
+    def save(self, index_dir):
+        """Write this index to a directory on disk."""
+        if not os.path.isdir(index_dir):
+            os.makedirs(index_dir)
+
+        with open(os.path.join(index_dir, "documents.txt"), "w") as f:
+            for doc in self.documents:
+                f.write("{},{},{}".format(doc.name, doc.filename, doc.max_tf))
+
+        directory = []
+        with open(os.path.join(index_dir, "index.dat"), "wb") as f:
+            bytes_written = 0
+            for word, locs in self.terms.items():
+                bits = word.encode('utf-8') + b"\n"
+                for loc in locs:
+                    bits.append(???)
+                directory.append((word, bytes_written, len(bits)))
+                f.write(bits)
+                bytes_written += len(bits)
+
+        with open(os.path.join(index_dir, "directory.txt"), "w") as f:
+            for word, offset, nbytes in directory:
+                f.write("{},{},{}".format(word, offset, nbytes))
 
 ## class IndexTests(unittest.TestCase):
 ##     def test_...(self):
