@@ -1,6 +1,6 @@
-import tiny
+import tiny, sys
 
-my_index = tiny.Index("../eensy-sample")
+my_index = tiny.Index(sys.argv[1])
 
 while True:
     query = input("search:> ")
