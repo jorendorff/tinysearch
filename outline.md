@@ -1,9 +1,10 @@
-*   the in-memory index
-    *   api:
-        *   `idx = eensy.Index(dirname)`
-        *   `idx.lookup(term) -> [Hit]`
-        *   tests based on the eensy sample
-    *   schema
+## Talk outline
+
+*   intro
+    *   intro proper
+    *   scope
+    *   architecture diagram
+    *   schema (as JSON)
 
             {
                 "banana": [      // <---- search term
@@ -20,9 +21,51 @@
                 ...
             }
 
+*   stubs (API)
+    *   tokenization
+    *   index creation
+    *   lookups
+        *   `idx = eensy.Index(dirname)`
+        *   `idx.lookup(term) -> [Hit]`
+    *   scoring
+    *   presentation
+*   implementation
+*   outro
+    *   two challenges: 1) how to test this; 2) the "hot chicken" problem
+
+
+
+## TODO
+
+* upload samples
+* use static analysis tools
+* hook up emacs static analysis tools
+* subliminal testing?
+* practice switching between keynote and emacs
+* practice comparing wdir to particular git revisions, as insurance
+* create the gist
+* create bit.ly shortlink to the gist
+* is emacs always on the screen?
+
+
+## TODO before each performance
+
+* start Firefox in a clean profile
+* close everything else
+* clone the github repo
+* and delete all files
+* create an area on the screen for the gist link
+* set font size in Terminal and Emacs
+
+
+## Old outline
+
+*   the in-memory index
+    *   api:
+        *   tests based on the eensy sample
+    *   schema
     *   schema implementation
         *   Python learning: namedtuple
-
     *   loading implementation
         *   tokenization
             *   refinement: lowercasing words
