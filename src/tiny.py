@@ -65,7 +65,7 @@ def make_index(dir):
                 bytes += struct.pack("=II", hit.doc_id, len(hit.offsets))
                 bytes += hit.offsets.tobytes()
             f.write(bytes)
-            terms.append((start, len(bytes), word))
+            terms.append((word, start, len(bytes)))
             start += len(bytes)
 
     # Save the table of terms.
@@ -78,7 +78,10 @@ def make_index(dir):
 ## === Phase 3: Querying the index
 
 class Index:
+    """ Class for reading a .tiny index. """
+
     def __init__(self, dir):
+        """ Create an Index that reads `$DIR/.tiny`. """
         dir = pathlib.Path(dir)
         tiny_dir = dir / ".tiny"
 
@@ -87,7 +90,7 @@ class Index:
             documents.append(Document(pathlib.Path(line), int(max_tf)))
 
         terms = {}
-        for start, length, word in csv.reader(open(tiny_dir / "terms.csv")):
+        for word, start, length in csv.reader(open(tiny_dir / "terms.csv")):
             terms[word] = (int(start), int(length))
 
         self.dir = dir

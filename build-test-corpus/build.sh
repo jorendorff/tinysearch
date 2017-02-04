@@ -5,31 +5,33 @@ set -e -
 URL=http://dumps.wikimedia.your.org/enwiki/latest/enwiki-latest-pages-articles.xml.bz2
 
 # What we're going to call that file when we download it.
-DUMPFILE=`basename "${URL}"`
+DUMPFILE=`basename "$URL"`
 
 cd `dirname $0`/..
 
 # Where we want to create our output.
 OUTDIR=large-sample
-
-# Names of the bundles we want to create.
-ZIPFILE=large-sample.zip
-TARFILE=large-sample.tar.bz2
+SMALL_OUTDIR=small-sample
 
 ### # Download the latest dump. Could not figure out how to configure wget to do this
 ### # in any reasonable way, so we just re-download the whole thing every time.
 ### # TODO: write a Makefile instead.
-### ### (cd build-test-corpus && wget "${URL}")
+### ### (cd build-test-corpus && wget "$URL")
+### xattr -d com.apple.quarantine "$DUMPFILE"
 ###
 ### # Run the program that creates the files.
-### build-test-corpus/create-corpus.py "build-test-corpus/${DUMPFILE}" "${OUTDIR}"
+### build-test-corpus/create-corpus.py "build-test-corpus/$DUMPFILE" "$OUTDIR"
+
 
 # In case we've run the program before.
-rm -rf "${OUTDIR}/.tiny"
+rm -rf "small-sample/.tiny"
+rm -rf "large-sample/.tiny"
 
-# Build the zipfile.
-zip -r "${ZIPFILE}" "${OUTDIR}"
+# Create zip bundle.
+ZIP_BUNDLE=sample.zip
+rm -f "$ZIP_BUNDLE"
+zip -r "$ZIP_BUNDLE" small-sample large-sample
 
-# Build the tarfile.
-tar cvjf "${TARFILE}" "${OUTDIR}"
-
+# Create tarball.
+TAR_BUNDLE=sample.tar.bz2
+tar cjf "$TAR_BUNDLE" small-sample large-sample
