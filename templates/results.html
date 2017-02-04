@@ -4,7 +4,7 @@
 </form>
 
 <ul>
-  {% for doc, score in results %}
-    <li>{{score|round(1)}} {{doc.path}}</li>
+  {% for filename, score in results %}
+    <li>{{score|round(1)}} - {{filename}}</li>
   {% endfor %}
 </ul>

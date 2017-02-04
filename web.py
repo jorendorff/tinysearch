@@ -1,7 +1,9 @@
+"""Search engine web server."""
+
 import tiny
 from flask import Flask, render_template, request
 
-my_index = tiny.Index("../large-sample")
+my_index = tiny.Index("small-sample")
 app = Flask(__name__)
 
 @app.route("/")
@@ -10,5 +12,6 @@ def root():
 
 @app.route("/search")
 def search():
-    q = request.args["q"]
-    return render_template("results.html", q=q, results=my_index.search(q))
+    q = request.args['q']
+    results = my_index.search(q)
+    return render_template("results.html", q=q, results=results)
