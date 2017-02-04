@@ -95,12 +95,6 @@ SECOND VIDEO
 
 ## TODO
 
-* (by 11a) tweet "live-coding-your-entire-talk @jorendorff"
-
-* (by 11a) get a ticket to the game night
-
-* (by 11a) get this stuff onto github
-
 * (by 12a) revise program to match latest run
 
 * trim even more stuff to make it fit in 45 minutes (currently 62'31'')
@@ -134,8 +128,6 @@ SECOND VIDEO
     * (by 3p) the index-for-reals slide
 
     * the index animation
-
-    * (by 3p) get a shot of the cover of Programming Rust and put it in slides
 
 
 
