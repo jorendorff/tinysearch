@@ -242,13 +242,13 @@ I'll donate an equivalent amount of cash
 to the charity of your choice.
 
 One MORE thing--
-I spent the last year writing a book, *Programming Rust.*
+I spent the last year cowriting a book, *Programming Rust.*
 If you like this talk, you might like Rust.
 For something like a search engine,
 a great approach is to prototype in Python
 and move to Rust for speed and concurrency.
-You can pre-order this book
-and get early access to the first 18 chapters
+Anyway, you can pre-order this book
+and get early access to 18 chapters right now
 at oreilly.com.
 
 OK, ONE MORE THING--
