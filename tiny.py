@@ -82,11 +82,11 @@ class Index:
         self.index_file = tiny_dir / "index.dat"
 
         self.documents = []
-        for [line, max_tf] in csv.reader(open(tiny_dir / "documents.csv")):
+        for [line, max_tf] in csv.reader((tiny_dir / "documents.csv").open('r')):
             self.documents.append(Document(pathlib.Path(line), int(max_tf)))
 
         self.terms = {}
-        for word, start, length in csv.reader(open(tiny_dir / "terms.csv")):
+        for word, start, length in csv.reader((tiny_dir / "terms.csv").open('r')):
             self.terms[word] = (int(start), int(length))
 
     def lookup(self, word):
