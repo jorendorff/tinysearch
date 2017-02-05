@@ -72,25 +72,22 @@ def make_index(dir):
 # === Phase 3: Querying the index
 
 class Index:
-    """ Class for reading a .tiny index. """
+    """Class for reading a .tiny index."""
 
     def __init__(self, dir):
-        """ Create an Index that reads `$DIR/.tiny`. """
+        """Create an Index that reads `$DIR/.tiny`."""
         dir = pathlib.Path(dir)
         tiny_dir = dir / ".tiny"
-
-        documents = []
-        for [line, max_tf] in csv.reader(open(tiny_dir / "documents.csv")):
-            documents.append(Document(pathlib.Path(line), int(max_tf)))
-
-        terms = {}
-        for word, start, length in csv.reader(open(tiny_dir / "terms.csv")):
-            terms[word] = (int(start), int(length))
-
         self.dir = dir
         self.index_file = tiny_dir / "index.dat"
-        self.documents = documents
-        self.terms = terms
+
+        self.documents = []
+        for [line, max_tf] in csv.reader(open(tiny_dir / "documents.csv")):
+            self.documents.append(Document(pathlib.Path(line), int(max_tf)))
+
+        self.terms = {}
+        for word, start, length in csv.reader(open(tiny_dir / "terms.csv")):
+            self.terms[word] = (int(start), int(length))
 
     def lookup(self, word):
         """Return a list of Hits for the given word."""
