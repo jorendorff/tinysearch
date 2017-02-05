@@ -203,7 +203,39 @@ and let's start stubbing out the parts of our search engine.
 
 ## Outro (about 2'00")
 
+### So what?
+
+Takeaways:
+
+*   **Indexes are not magic.**
+    "Oh yeah, I see how that works, it's just data."
+    I hope that's how you feel about it.
+    I like that feeling.
+
+*   **algorithms + data structures = programs.**
+    If you're new to Python or you're new to programming:
+    this talk is brought to you by Python's
+    lists, dictionaries, and named tuples.
+    Use them.
+    Study them.
+    They're so flexible.
+    They're so powerful in combination.
+    When you understand what it means to build a dictionary
+    that maps strings to lists of tuples,
+    you can build big ambitious things in 45 minutes.
+
+*   **`pathlib, collections, csv, array, struct,` ...**
+    Python's standard library may still contain
+    a few surprises for you.
+
+
+### One more thing
+
 MAKE SURE web.py SELECTS LARGE SAMPLE
+
+That's almost eveything.
+There is one thing I want your help with.
+Let's see what happens if we search for "hot chicken".
 
 These are documents that use the word "hot" many times.
 It's sad, because if you use grep,
