@@ -95,7 +95,7 @@ class Index:
             return []
 
         start, length = self.terms[word]
-        with open(self.index_file, 'rb') as f:
+        with self.index_file.open('rb') as f:
             f.seek(start)
             bytes = f.read(length)
 
