@@ -9,11 +9,11 @@ wins **an awesome Hattie B's t-shirt or gift card!!!**
 Explanation: If you run this search engine and search for `hot chicken`,
 you'll get this:
 
-[!picture of search results](images/hot-chicken.png)
+![picture of search results](images/hot-chicken.png)
 
 And if you search for `batman building`, you'll get this:
 
-[!picture of search results](images/batman-building.png)
+![picture of search results](images/batman-building.png)
 
 We want to see `Nashville%2C-Tennessee.txt` at the top of both queries.
 The information you need to do this is in the index!
