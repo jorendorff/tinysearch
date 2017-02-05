@@ -72,7 +72,7 @@ def make_index(dir):
 # === Phase 3: Querying the index
 
 class Index:
-    """Class for reading a .tiny index."""
+    """Object for querying a .tiny index."""
 
     def __init__(self, dir):
         """Create an Index that reads `$DIR/.tiny`."""
