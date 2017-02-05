@@ -14,7 +14,9 @@
 * set font size in Terminal and Emacs (62 cols)
 * `rm ~/.pyenv/versions/tiny; rm -rf ~/.pyenv/versions/3.6.0/envs/tiny`
 * `mkdir tiny; cd tiny; pyenv local 3.6.0; pyenv virtualenv tiny; pyenv local tiny`
-* start QuickTime Player recording screencast
+* maximize keynote to its own screen
+    * start presentation playing
+
 
 
 ## Talk outline
