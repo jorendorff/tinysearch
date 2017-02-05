@@ -95,8 +95,6 @@ SECOND VIDEO
 
 ## TODO
 
-* (by 12a) revise program to match latest run
-
 * trim even more stuff to make it fit in 45 minutes (currently 62'31'')
 
 * tools & testing
@@ -105,29 +103,11 @@ SECOND VIDEO
     * subliminal testing?
     * practice switching between keynote and emacs
 
-* gist
-    * make single file containing both samples directories
-    * upload samples
-    * confirm zip doesn't mangle filenames on windows
-    * update the code in the gist
-    * create bit.ly shortlink to the gist
-
-* intro
-    * finish writing intro
+* intro/outro
     * rehearse intro
-    * consider printing intro
-
-* outro
+    * (by 3p) finish writing outro
     * rehearse outro
-    * print outro
-
-* make slides
-    * draw pictures
-        * (by 3p) all architecture pictures
-    * (by 3p) the index-as-JSON slide
-    * (by 3p) the index-for-reals slide
-
-    * the index animation
+    * (tonite) print intro and outro
 
 
 
