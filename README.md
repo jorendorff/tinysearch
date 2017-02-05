@@ -6,7 +6,18 @@ First person to change this search engine to recognize **exact phrases**
 and boost them up to the top of the search results
 wins **an awesome Hattie B's t-shirt or gift card!!!**
 
-ZOMG start hacking now
+Explanation: If you run this search engine and search for `hot chicken`,
+you'll get this:
+
+[!picture of search results](images/hot-chicken.png)
+
+And if you search for `batman building`, you'll get this:
+
+[!picture of search results](images/batman-building.png)
+
+We want to see `Nashville%2C-Tennessee.txt` at the top of both queries.
+The information you need to do this is in the index!
+You just have to use it!
 
 ## How to run this search engine
 
