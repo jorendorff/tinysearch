@@ -77,9 +77,9 @@ and Google and DuckDuckGo, work by building an index.
 Today we'll create an index for 8,000 articles,
 and use that index to answer queries.
 
-*(2m02s to this point)*
+*(realistically about 4 minutes to this point)*
 
-How are we doing? 43 minutes to go. Right on schedule.
+How are we doing? 41 minutes to go. Right on schedule.
 
 *(slide: architecture)*
 
@@ -184,9 +184,6 @@ The document ids tell us which line of `documents.csv`
 to look at, to get filenames.
 
 
-*(??? to this point)*
-
-
 ## Startup
 
 All right. We're making good time.
@@ -231,7 +228,7 @@ Takeaways:
 
 ### One more thing
 
-MAKE SURE web.py SELECTS LARGE SAMPLE
+*(make sure `web.py` selects the large sample)*
 
 That's almost eveything.
 There is one thing I want your help with.
