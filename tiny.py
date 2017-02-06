@@ -161,7 +161,7 @@ class Index:
                 idf = math.log(1 / df)
                 for hit in hits:
                     tf = 1000 * len(hit.offsets) / self.documents[hit.doc_id].size
-                    scores[hit.doc_id] += 50 * tf * idf
+                    scores[hit.doc_id] += 500 * tf * idf
 
         results = sorted(scores.items(),
                          key=lambda pair: pair[1],
