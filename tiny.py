@@ -112,13 +112,39 @@ class Index:
         assert read_pos == len(bytes)
         return hits
 
+    def lookup_pair(self, first, second):
+        """ Return a list of Hits for a pair of words occurring sequentially """
+        # Build dictionaries for both words
+        first_docs = {hit.doc_id:hit for hit in self.lookup(first)}
+        second_docs = {hit.doc_id:hit for hit in self.lookup(second)}
+
+        hits = []
+        # Find docs have both words
+        for doc_id in set(first_docs.keys()).intersection(set(
+                second_docs.keys())):
+            first_offsets = set(first_docs[doc_id].offsets)
+            # If the second word's offset is one larger than the first word's
+            # it occurred immediately after the first word.
+            second_offsets = set(offset - 1 for offset in second_docs[
+                doc_id].offsets)
+
+            # Find words where the second word occurred after the first one.
+            joined_offsets = first_offsets.intersection(second_offsets)
+
+            # Construct a Hit object for the word pair
+            if joined_offsets:
+                hits.append(Hit(doc_id, sorted(list(joined_offsets))))
+        return hits
+
     def search(self, query):
         """Find documents matching the given query.
 
         Return a list of (document, score) pairs."""
         scores = collections.defaultdict(float)
 
-        for word in words(query):
+        # Find and score the individual words
+        word_list = words(query)
+        for word in word_list:
             hits = self.lookup(word)
             if hits:
                 df = len(hits) / len(self.documents)
@@ -126,6 +152,16 @@ class Index:
                 for hit in hits:
                     tf = 1000 * len(hit.offsets) / self.documents[hit.doc_id].size
                     scores[hit.doc_id] += tf * idf
+
+        # Find and score word pairs
+        for pair in zip(word_list, word_list[1:]):
+            hits = self.lookup_pair(*pair)
+            if hits:
+                df = len(hits) / len(self.documents)
+                idf = math.log(1 / df)
+                for hit in hits:
+                    tf = 1000 * len(hit.offsets) / self.documents[hit.doc_id].size
+                    scores[hit.doc_id] += 50 * tf * idf
 
         results = sorted(scores.items(),
                          key=lambda pair: pair[1],
