@@ -1,5 +1,10 @@
 # tinysearch
 
+This repository contains a tiny search engine, in just
+[140 lines of Python](https://github.com/jorendorff/tinysearch/blob/master/tiny.py).
+Originally written for PyTennessee 2017.
+
+
 ## The challenge
 
 **Change this search engine to recognize *exact phrases*
@@ -21,8 +26,6 @@ The information you need to do this is already in the index.
 
 ## How to run this search engine
 
-You'll need python 3.
-
 1.  clone this repository
 
 2.  download either
@@ -31,8 +34,10 @@ You'll need python 3.
     [sample.zip](https://www.dropbox.com/s/cn6n2xjjyyz3c13/sample.zip?dl=1)
     and untar/unzip it in your `tinysearch` directory.
 
-3.  `python tiny.py small-sample`
+3.  `python3 tiny.py small-sample`
     to create a search index!
+
+    ([get Python 3 here](https://www.python.org/downloads/))
 
 4.  `pip install flask`
 
@@ -47,7 +52,7 @@ Then you can go to <http://localhost:5000/> to see the toy search engine.
 The instructions above only search 50 files.
 To search all 8,000+ files, make these two changes:
 
-1.  `python tiny.py large-sample`
+1.  `python3 tiny.py large-sample`
     to create the index. This takes ~5 minutes.
 
 2.  In `web.py`, just change the string `"small-sample"` to `"large-sample"`.
