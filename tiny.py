@@ -26,7 +26,7 @@ def make_index(dir):
     terms = {}  # {str: (int, int)}
 
     for path in dir.glob("**/*.txt"):
-        text = path.read_text()
+        text = path.read_text(encoding="utf-8", errors="replace")
         doc_words = words(text)
         doc = Document(path.relative_to(dir), len(doc_words))
         doc_id = len(documents)
