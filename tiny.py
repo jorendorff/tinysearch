@@ -43,7 +43,7 @@ def make_index(dir):
             index[word].append(hit)
 
     # Save the document list.
-    with (tiny_dir / "documents.csv").open('w') as f:
+    with (tiny_dir / "documents.csv").open('w', encoding="utf-8") as f:
         out = csv.writer(f)
         for doc in documents:
             out.writerow(doc)
@@ -63,7 +63,7 @@ def make_index(dir):
             start += len(bytes)
 
     # Save the table of terms.
-    with (tiny_dir / "terms.csv").open('w') as f:
+    with (tiny_dir / "terms.csv").open('w',  encoding="utf-8") as f:
         out = csv.writer(f)
         for word, (start, length) in terms.items():
             out.writerow([word, start, length])
